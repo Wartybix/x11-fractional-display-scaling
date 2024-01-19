@@ -27,14 +27,14 @@ currentPan=$(xrandr |
 
 # Get max res supported by hardware:
 res=$("xrandr" |
-      sed '3!d' |      # Get line 3 (should be the the correct line...)
+      grep "*" |       # line of current resolution
       xargs |          # Remove leading whitespace
       grep -o '^\S*')  # Remove stuff after resolution (starting with 1st ' ')
 
 # Get display identifier:
 display=$("xrandr" |
-          sed '2!d' |      # Get line 2 (should be the the correct line...)
-          grep -o '^\S*')  # Remove stuff after display (starting with 1st ' ')
+          grep "connected primary" |  # Get line of connected primary display.
+          grep -o '^\S*')             # Remove stuff after display (starting with 1st ' ')
 
 xRes=$(echo $res | cut -d "x" -f 1)
 yRes=$(echo $res | cut -d "x" -f 2)
