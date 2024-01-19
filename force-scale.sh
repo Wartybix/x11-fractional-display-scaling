@@ -3,3 +3,4 @@ while xrandr -q | grep "connected primary" | grep "DisplayPort-2"; do
 done
 
 autorandr -c --default default
+flatpak run --command=vibrant-cli io.github.libvibrant.vibrantLinux DisplayPort-4 0.74
