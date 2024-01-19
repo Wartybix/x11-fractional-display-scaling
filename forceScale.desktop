@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Force X Scale
+Exec=/usr/local/bin/force-scale.sh
+Terminal=false
